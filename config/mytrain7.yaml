@@ -1,0 +1,44 @@
+exp_name: 7scene_test
+
+model: multimodal_RIENET
+dataset: 7scenes 
+model_path: '/root/autodl-tmp/MFDA-Net/checkpoints/7scene_single_multi/models/model.best.t7'
+dim: 8
+n_points2: 85000
+save_path: /root/autodl-tmp/MFDA-Net/visual_eval/visual_eval_2
+# -------------------------modelenet40-------------------
+rot_factor: 4
+gaussian_noise: true
+unseen: False
+# -------------------------7scenes-----------------------
+mode: train
+mag: 1
+workers: 0
+dataset_path: /root/autodl-tmp/3DImageMatch/train
+categoryfile: /root/autodl-tmp/RIENet-main/data/categories/7scene_train.txt
+# ----------------model hyper parameters------------------
+nn_margin: 0.5 
+loss_margin: 0.01 
+k1: 8
+k2: 8
+emb_dims: 128  
+n_iters: 3
+n_points: 2048
+n_subsampled_points: 1536
+batch_size: 1
+test_batch_size: 1
+epochs: 100
+use_sgd: False
+n_keypoints: 768
+lr: 0.001
+momentum: 0.9
+no_cuda: False
+seed: 8888
+start_epoch: 0
+lr_step: [15,25,35]
+
+# ------------------network training-----------------------
+resume: false
+
+# ------------------network testing------------------------
+eval: true
